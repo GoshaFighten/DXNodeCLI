@@ -1,0 +1,11 @@
+{
+  "name": "gosha-dx-tools",
+  "version": "0.0.20",
+  "bin": {
+    "dxJquery": "./index.js"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
+  "preferGlobal": true
+}
