@@ -1,6 +1,6 @@
 {
   "name": "gosha-dx-tools",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "bin": {
     "dxJquery": "./dxJquery/index.js"
   },
