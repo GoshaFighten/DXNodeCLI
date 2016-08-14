@@ -1,7 +1,2 @@
-git clone https://github.com/GoshaFighten/DXSandbox %destination%
-cd /d %destination%
-rd .git /S/Q
-del .gitignore README.md src\.gitignore
-call npm install
-call code .
-npm start
+set destination=%1
+echo %destination%
