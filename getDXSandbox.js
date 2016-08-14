@@ -9,7 +9,15 @@ var commands = argv._;
 create(commands[0]);
 
 function create(destination) {
-    exec("getDXSandbox.bat " + destination, function (err, stdout, stderr) {
+    var cmd = `set destination=${destination}
+git clone https://github.com/GoshaFighten/DXSandbox %destination%
+cd /d %destination%
+rd .git /S/Q
+del .gitignore README.md src\.gitignore
+call npm install
+call code .
+npm start`;
+    exec(cmd, function (err, stdout, stderr) {
         if (err) {
             console.error(err);
             return;
