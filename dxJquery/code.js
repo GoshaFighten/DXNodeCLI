@@ -1,5 +1,8 @@
 $(function () {
     $("#btn").dxButton({
-        text: 'Click'
+        text: "Click",
+        onClick: function () {
+            alert("Click!");
+        }
     });
 });

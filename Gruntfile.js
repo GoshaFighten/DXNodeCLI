@@ -1,10 +1,10 @@
 module.exports = function (grunt) {
-    grunt.registerTask('makedxJquery', 'Concat Files', function () {
+    grunt.registerTask('makedxTemplate', 'Make DX Template', function (folder) {
         var header = "#! /usr/bin/env node";
-        var templatefilepath = "dxJquery/markup.html";
-        var codefilepath = "dxJquery/code.js";
-        var corefilepath = "dxJquery/core.js";
-        var outputfilepath = "dxJquery/index.js";
+        var templatefilepath = [folder, "markup.html"].join("/");
+        var codefilepath = [folder, "code.js"].join("/");
+        var corefilepath = "dxTemplateCore.js";
+        var outputfilepath = [folder, "index.js"].join("/");
 
         var template = grunt.file.read(templatefilepath, {
             encoding: "utf8"
@@ -27,4 +27,8 @@ module.exports = function (grunt) {
             encoding: "utf8"
         });
     });
+    grunt.registerTask('makedxJquery', 'Make DX jQuery Template', ['makedxTemplate:dxJquery']);
+    grunt.registerTask('makedxAngular', 'Make DX Angular Template', ['makedxTemplate:dxAngular']);
+    grunt.registerTask('makedxKnockout', 'Make DX Knockout Template', ['makedxTemplate:dxKnockout']);
+    grunt.registerTask('makedxTemplates', 'Make DX Tempaltes', ['makedxJquery', 'makedxAngular', "makedxKnockout"]);
 };
