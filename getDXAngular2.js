@@ -1,13 +1,5 @@
 #! /usr/bin/env node
 
-var spawn = require('child_process').spawn;
-const path = require('path');
+var core = require("./getProject");
 
-var argv = require('minimist')(process.argv.slice(1));
-var commands = argv._;
-
-create(commands[0], commands[1]);
-
-function create(root, destination) {
-    const bat = spawn('cmd.exe', ['/c', path.join(path.dirname(root), `getDXAngular2.bat ${destination}`)], { stdio: 'inherit' });
-}
+core.create('getDXAngular2.bat');

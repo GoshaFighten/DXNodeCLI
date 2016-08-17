@@ -1,6 +1,6 @@
 {
   "name": "gosha-dx-tools",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "bin": {
     "dxJquery": "./dxJquery/index.js",
     "dxAngular": "./dxAngular/index.js",
@@ -13,11 +13,11 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "prompt": "^1.0.0"
   },
   "preferGlobal": true,
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "prompt": "^1.0.0"
+    "grunt": "^1.0.1"    
   }
 }

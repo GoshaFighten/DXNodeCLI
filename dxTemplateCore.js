@@ -1,5 +1,6 @@
 var fs = require('fs');
 var path = require('path');
+var prompt = require('prompt');
 
 var searchScriptLine = /%scriptFile%/g;
 var searchVersionLine = /%version%/g;
@@ -12,18 +13,36 @@ create(commands[0], commands[1]);
 function create(name, version) {
     var root = path.resolve("src");
 
-    var result = htmFile.replace(searchScriptLine, name);
-    result = result.replace(searchVersionLine, version);
-    fs.mkdir(path.join(root, name), function (err) {
-        if (err) {
-            return console.log('failed to write directory', err);
-        };
-        var writeFileCallback = function (error) {
-            if (error) {
-                return console.log('failed to write file', error);
-            };
+    var schema = {
+        properties: {
+            name: {
+                required: true,
+                default: name
+            },
+            version: {
+                required: true,
+                default: version
+            }
         }
-        fs.writeFile(path.join(root, name, name + ".html"), result, writeFileCallback);
-        fs.writeFile(path.join(root, name, name + ".js"), jsCode, writeFileCallback);
+    };
+
+    prompt.start();
+    prompt.get(schema, function (err, result) {
+        name = result.name;
+        version = result.version;
+        htmFile = htmFile.replace(searchScriptLine, name);
+        htmFile = htmFile.replace(searchVersionLine, version);
+        fs.mkdir(path.join(root, name), function (err) {
+            if (err) {
+                return console.log('failed to write directory', err);
+            };
+            var writeFileCallback = function (error) {
+                if (error) {
+                    return console.log('failed to write file', error);
+                };
+            }
+            fs.writeFile(path.join(root, name, name + ".html"), htmFile, writeFileCallback);
+            fs.writeFile(path.join(root, name, name + ".js"), jsCode, writeFileCallback);
+        })
     })
 }
