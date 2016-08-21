@@ -16,15 +16,19 @@ function create(name, version) {
     var schema = {
         properties: {
             name: {
-                required: true,
-                default: name
+                required: true
             },
             version: {
                 required: true,
-                default: version
+                pattern: /^\d{1,2}\.\d{1,2}\.\d{1,2}$/
             }
         }
     };
+
+    prompt.override = {
+        name: name,
+        version: version
+    }
 
     prompt.start();
     prompt.get(schema, function (err, result) {
