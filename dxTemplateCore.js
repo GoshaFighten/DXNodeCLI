@@ -46,6 +46,7 @@ function create(name, version) {
                 };
             }
             fs.writeFile(path.join(root, name, name + ".html"), htmFile, writeFileCallback);
+            fs.writeFile(path.join(root, name, "data.js"), dataCode, writeFileCallback);
             fs.writeFile(path.join(root, name, name + ".js"), jsCode, writeFileCallback);
         })
     })

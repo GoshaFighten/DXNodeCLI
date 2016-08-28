@@ -2,10 +2,29 @@
 /// <reference path="C:/Program Files (x86)/DevExpress 16.1/DevExtreme/Sources/Lib/ts/dx.all.d.ts" />
 
 $(function () {
-    $("#btn").dxButton({
-        text: "Click",
-        onClick: function () {
-            alert("Click!");
+    $("#grid").dxDataGrid({
+        dataSource: data,
+        columns: ["orderID", {
+            dataField: "orderDate",
+            dataType: "date"
+        }, "customerName", "shipCountry", "shipCity"],
+        filterRow: {
+            visible: true
+        },
+        headerFilter: {
+            visible: true
+        },
+        groupPanel: {
+            visible: true
+        },
+        summary: {
+            totalItems: [{
+                column: "shipCity",
+                summaryType: "count"
+            }],
+            groupItems: [{
+                summaryType: "count"
+            }]
         }
     });
 });
