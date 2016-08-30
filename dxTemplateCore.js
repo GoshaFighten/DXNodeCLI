@@ -16,7 +16,10 @@ function create(name, version) {
     var schema = {
         properties: {
             name: {
-                required: true
+                required: true,
+                before: function (value) {
+                    return value.trim();
+                }
             },
             version: {
                 required: true,
