@@ -1,6 +1,6 @@
 {
   "name": "gosha-dx-tools",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "bin": {
     "dxJquery": "./dxJquery/index.js",
     "dxAngular": "./dxAngular/index.js",
@@ -18,6 +18,7 @@
   },
   "preferGlobal": true,
   "devDependencies": {
-    "grunt": "^1.0.1"    
+    "eslint": "^3.4.0",
+    "grunt": "^1.0.1"
   }
 }
