@@ -2,4 +2,4 @@
 
 var core = require("./getProject");
 
-core.create('getDXSandbox.bat');
+core.create("getDXSandbox.bat");

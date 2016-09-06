@@ -1,5 +1,5 @@
-var myApp = angular.module('myApp', ['dx']);
-myApp.controller('demoController', function ($scope) {
+var myApp = angular.module("myApp", ["dx"]);
+myApp.controller("demoController", function ($scope) {
     $scope.grid = {
         dataSource: data,
         columns: ["orderID", {
@@ -24,5 +24,5 @@ myApp.controller('demoController', function ($scope) {
                 summaryType: "count"
             }]
         }
-    }
-})
+    };
+});

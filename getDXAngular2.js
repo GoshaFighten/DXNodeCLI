@@ -2,4 +2,4 @@
 
 var core = require("./getProject");
 
-core.create('getDXAngular2.bat');
+core.create("getDXAngular2.bat");

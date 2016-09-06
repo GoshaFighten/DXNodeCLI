@@ -28,4 +28,4 @@ $(function () {
     };
 
     ko.applyBindings(viewModel);
-})
+});

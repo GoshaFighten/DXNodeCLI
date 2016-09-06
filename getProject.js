@@ -1,7 +1,7 @@
-var spawn = require('child_process').spawn;
-const path = require('path');
-var prompt = require('prompt');
-var argv = require('minimist')(process.argv.slice(1));
+var spawn = require("child_process").spawn;
+const path = require("path");
+var prompt = require("prompt");
+var argv = require("minimist")(process.argv.slice(1));
 var commands = argv._;
 
 exports.create = (command) => {
@@ -18,6 +18,6 @@ exports.create = (command) => {
     prompt.start();
     prompt.get(schema, function (err, result) {
         destination = result.destination;
-        const bat = spawn('cmd.exe', ['/c', path.join(path.dirname(root), `${command} ${destination}`)], { stdio: 'inherit' });
-    })
-}
+        spawn("cmd.exe", ["/c", path.join(path.dirname(root), `${command} ${destination}`)], { stdio: "inherit" });
+    });
+};
