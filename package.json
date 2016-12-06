@@ -1,12 +1,13 @@
 {
   "name": "gosha-dx-tools",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "bin": {
     "dxJquery": "./dxJquery/index.js",
     "dxAngular": "./dxAngular/index.js",
     "dxKnockout": "./dxKnockout/index.js",
     "DXSandbox": "./getDXSandbox.js",
-    "DXAngular2": "./getDXAngular2.js"
+    "DXAngular2": "./getDXAngular2.js",
+    "DXAngular2Webpack": "./getDXAngular2Webpack.js"
   },
   "scripts": {
     "build": "grunt makedxTemplates",
